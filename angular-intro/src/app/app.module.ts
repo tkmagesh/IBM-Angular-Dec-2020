@@ -2,15 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { GreeterComponent } from '../greeter/greeter.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GreeterComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [GreeterComponent]
 })
 export class AppModule { }

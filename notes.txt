@@ -127,3 +127,7 @@ To create a new component
 
     - register the component in the app.module
     - use the component in 'index.html' OR on other component (using the selector)
+
+
+
+
