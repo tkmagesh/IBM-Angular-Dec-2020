@@ -1,1 +1,9 @@
-h3{Greeter}+hr+label{User Name :}+input:text+input:button[value="Greet"+div.highlight{[Greet Message]}
+<!-- 
+    h3{Greeter}+hr+label{User Name :}+input:text+input:button[value="Greet"]+div.highlight{[Greet Message]}
+ -->
+<h3>Greeter</h3>
+<hr>
+<label for="">User Name :</label>
+<input type="text" #txtUserName>
+<input type="button" value="Greet" (click)="onBtnGreetClick(txtUserName.value)">
+<div class="highlight">{{message}}</div>
