@@ -1,0 +1,129 @@
+UI
+    Controller
+        UI Behavior
+    View
+        Presentation (Generate HTML)
+    Model
+        (State) Data
+
+MailItem -> Data + Presentation + UI Behavior
+
+Component
+    - Class that represents one UI aspect of the application
+    - Reusable
+    - Synchronize the Presentation whenever the data is chaning
+    - Composable
+
+Application -> composition of components
+
+
+Angular Building Blocks
+    - Component
+        represents one UI aspect of the application
+        encapsulates Data + Presentation + UI Behavior
+
+    - Module
+        modularize the application entities
+        support for dependency injection
+        Application can be made of many modules
+        There has to be a minimum of 1 module
+        Bootstraping of an application is through the module
+        All the entities of the application have to be registered in the module
+            declarations - components, directives & pipes
+            providers - services
+            imports - dependent modules
+            bootstrap - top most component in the component tree
+
+    - Pipe
+        Data transformation logic for presentation
+
+    - Directive
+        Low level DOM manipulation
+
+    - Service
+        Non UI responsibilities
+
+
+ES6 (ECMAScript 6, ES2015, ESNext)
+
+http://es6-features.org
+
+1. let
+2. const
+3. array destructuring
+4. rest operator (array)
+5. spread operator (array)
+6. object destructuring
+7. rest operator (object)
+8. spread operator (object)
+9. default arguments
+10. arrow function
+11. template strings
+12. classes
+
+
+class Employee{
+    id = 0;
+    name = '';
+    salary = 0;
+
+    display(){
+        console.log(`id=${this.id}, name=${this.name} and salary=${this.salary}`);
+    }
+
+    constructor(id, name, salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+}
+
+class FullTimeEmployee extends Employee{
+    benefits = '';
+
+    constructor(id, name, salary, benefits){
+        super(id, name, salary);
+        this.benefits = benefits;
+    }
+}
+
+TypeScript (http://typescriptlang.org)
+    => JavaScript + TypeSafety
+
+
+var x:number = 100;
+
+function add(x:number,y:number):number {
+    return x + y;
+}
+
+add('abc',100)
+
+    =====> typescript compiler =====>
+
+var x = 100;
+
+function add(x,y) {
+    return x + y;
+}
+
+Langauge Features
+    - Access modifiers (public, private, protected)
+    - Support for 'interfaces'
+    - Support for 'enums'
+    - Support for 'classes'
+    - Support for 'decorators' (like annotations in Java)
+    - Support for 'generics'
+
+Webpack Bundler
+
+To create a new component
+    - create a folder for the component in the 'src' folder
+    - in that folder
+        create files
+            <component-name>.component.ts
+            <component-name>.component.html
+            <component-name>.component.css
+
+    - register the component in the app.module
+    - use the component in 'index.html' OR on other component (using the selector)
