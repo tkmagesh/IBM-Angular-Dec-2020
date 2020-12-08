@@ -3,6 +3,7 @@
 <input type="button" value="Home" (click)="choice='home'">
 <input type="button" value="Greeter" (click)="choice='greeter'">
 <input type="button" value="Calculator" (click)="choice='calculator'">
+<input type="button" value="Products" (click)="choice='products'">
 <!-- using ngIf -->
 <!-- 
 <ng-template [ngIf]="choice==='home'">
@@ -30,4 +31,5 @@
   </div>
   <app-greeter *ngSwitchCase="'greeter'"></app-greeter>
   <app-calculator *ngSwitchCase="'calculator'"></app-calculator>
+  <app-products *ngSwitchCase="'products'"></app-products>
 </div>
