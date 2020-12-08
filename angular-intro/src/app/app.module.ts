@@ -17,6 +17,6 @@ import { CalculatorService } from './calculator/calculator.service';
     BrowserModule
   ],
   providers: [ CalculatorService ],
-  bootstrap: [GreeterComponent, CalculatorComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
