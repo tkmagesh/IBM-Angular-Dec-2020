@@ -9,7 +9,18 @@ export class CalculatorComponent{
     n1 : number = 0;
     n2 : number = 0;
     result : number = 0;
-    calculatorService = new CalculatorService();
+    
+    /* 
+    private calculatorService : CalculatorService ;
+
+    constructor(calculatorService : CalculatorService){
+        this.calculatorService = calculatorService;
+    } 
+    */
+
+    constructor(private calculatorService : CalculatorService){
+        
+    } 
 
     setN1(value : string ){
         this.n1 = parseInt(value);
