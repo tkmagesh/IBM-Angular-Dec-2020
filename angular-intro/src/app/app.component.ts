@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-intro';
 
+  choice : string = 'home';
+
   constructor(){
    /*  setTimeout(() => {
       this.title = 'Payroll Manager';
