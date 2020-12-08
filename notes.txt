@@ -129,5 +129,12 @@ To create a new component
     - use the component in 'index.html' OR on other component (using the selector)
 
 
+Directives
+    - Attribute Directive
+        manipulates the attributes of existing DOM nodes
+        doesn't change the structure of the DOM tree (add/remove DOM nodes)
+        used by wrapping with []
 
-
+    - Structural Directive
+        changes the structure of the DOM tree (by adding/removing DOM nodes)
+        used by prefixing with *
