@@ -24,4 +24,8 @@ export class BugTrackerComponent{
     onBugClick(bugToToggle : Bug){
         bugToToggle.isClosed = !bugToToggle.isClosed;
     }
+
+    onRemoveClick(bugToRemove : Bug){
+        this.bugs = this.bugs.filter(bug => bug !== bugToRemove);
+    }
 }

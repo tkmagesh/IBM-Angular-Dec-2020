@@ -30,7 +30,7 @@
                 {{bug.name}}
             </span>
             <div class="datetime">[{{bug.createdAt}}]</div>
-            <input type="button" value="Remove">
+            <input type="button" value="Remove" (click)="onRemoveClick(bug)">
         </li>
         <!-- <li>
             <span class="bugname closed">This is bug - 2...</span>
