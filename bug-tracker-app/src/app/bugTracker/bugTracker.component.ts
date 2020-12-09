@@ -11,6 +11,9 @@ export class BugTrackerComponent{
     bugs : Bug[] = [];
     rangeValue : number = 20;
 
+    sortAttr : string = '';
+    sortByDesc : boolean = false;
+
     constructor(private bugOpetations : BugOperationsService){
         this.bugs.push(this.bugOpetations.createNew('Server communication failure'))
         this.bugs.push(this.bugOpetations.createNew('Application not responding'))
