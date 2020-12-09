@@ -12,7 +12,10 @@ export class BugTrackerComponent{
     rangeValue : number = 20;
 
     constructor(private bugOpetations : BugOperationsService){
-
+        this.bugs.push(this.bugOpetations.createNew('Server communication failure'))
+        this.bugs.push(this.bugOpetations.createNew('Application not responding'))
+        this.bugs.push(this.bugOpetations.createNew('User actions not recognized'))
+        this.bugs.push(this.bugOpetations.createNew('Data integrity checks failed'))
     }
 
     onAddNewClick(bugName : string){
