@@ -28,4 +28,14 @@ export class BugTrackerComponent{
     onRemoveClick(bugToRemove : Bug){
         this.bugs = this.bugs.filter(bug => bug !== bugToRemove);
     }
+
+    onRemoveClosedClick(){
+        /* for (let index = this.bugs.length-1; index >= 0; index--) {
+            if (this.bugs[index].isClosed) {
+                this.bugs.splice(index, 1);
+            }
+            
+        } */
+        this.bugs = this.bugs.filter(bug => !bug.isClosed);
+    }
 }
