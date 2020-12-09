@@ -38,4 +38,21 @@ export class BugTrackerComponent{
         } */
         this.bugs = this.bugs.filter(bug => !bug.isClosed);
     }
+
+    getClosedCount() : number {
+
+        //replace the below code using the 'reduce' method of the array   
+        /* 
+        let closedCount = 0;
+        for (let index = 0; index < this.bugs.length; index++) {
+            const bug = this.bugs[index];
+            if (bug.isClosed){
+                ++closedCount;
+            }
+        }
+        return closedCount; 
+        */
+
+        return this.bugs.reduce((prevResult, bug) => bug.isClosed ? prevResult + 1 : prevResult, 0);
+    }
 }
