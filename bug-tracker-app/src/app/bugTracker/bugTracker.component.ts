@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Bug } from './models/Bug';
+import { BugOperationsService } from './services/bugOperations.service';
 
 @Component({
     selector : 'app-bug-tracker',
@@ -7,23 +8,20 @@ import { Bug } from './models/Bug';
 })
 export class BugTrackerComponent{
     
-    private currentBugId: number = 0;
-
     bugs : Bug[] = [];
     rangeValue : number = 20;
-    
+
+    constructor(private bugOpetations : BugOperationsService){
+
+    }
+
     onAddNewClick(bugName : string){
-        const newBug : Bug = {
-            id : ++this.currentBugId,
-            name : bugName,
-            isClosed : false,
-            createdAt : new Date()
-        };
+        const newBug = this.bugOpetations.createNew(bugName);
         this.bugs.push(newBug);
     }
 
     onBugClick(bugToToggle : Bug){
-        bugToToggle.isClosed = !bugToToggle.isClosed;
+        this.bugOpetations.toggle(bugToToggle);
     }
 
     onRemoveClick(bugToRemove : Bug){
@@ -31,29 +29,10 @@ export class BugTrackerComponent{
     }
 
     onRemoveClosedClick(){
-        /* for (let index = this.bugs.length-1; index >= 0; index--) {
-            if (this.bugs[index].isClosed) {
-                this.bugs.splice(index, 1);
-            }
-            
-        } */
         this.bugs = this.bugs.filter(bug => !bug.isClosed);
     }
 
     getClosedCount() : number {
-
-        //replace the below code using the 'reduce' method of the array   
-        /* 
-        let closedCount = 0;
-        for (let index = 0; index < this.bugs.length; index++) {
-            const bug = this.bugs[index];
-            if (bug.isClosed){
-                ++closedCount;
-            }
-        }
-        return closedCount; 
-        */
-
         return this.bugs.reduce((prevResult, bug) => bug.isClosed ? prevResult + 1 : prevResult, 0);
     }
 }
