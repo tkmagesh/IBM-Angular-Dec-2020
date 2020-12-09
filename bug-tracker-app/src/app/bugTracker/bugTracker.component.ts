@@ -23,11 +23,13 @@ export class BugTrackerComponent{
 
     onAddNewClick(bugName : string){
         const newBug = this.bugOpetations.createNew(bugName);
-        this.bugs.push(newBug);
+        //this.bugs.push(newBug);
+        this.bugs = [...this.bugs, newBug];
     }
 
     onBugClick(bugToToggle : Bug){
-        this.bugOpetations.toggle(bugToToggle);
+        const toggledBug = this.bugOpetations.toggle(bugToToggle);
+        this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug)
     }
 
     onRemoveClick(bugToRemove : Bug){
@@ -39,6 +41,7 @@ export class BugTrackerComponent{
     }
 
     getClosedCount() : number {
+        //console.log('getClosedCount triggered');
         return this.bugs.reduce((prevResult, bug) => bug.isClosed ? prevResult + 1 : prevResult, 0);
     }
 }

@@ -1,7 +1,7 @@
 import { Bug } from '../models/Bug';
 
 export class BugOperationsService{
-    
+
     private currentBugId: number = 0;
 
     createNew(bugName : string) : Bug {
@@ -14,7 +14,9 @@ export class BugOperationsService{
         return newBug;
     }
 
-    toggle(bugToToggle : Bug) : void {
-        bugToToggle.isClosed = !bugToToggle.isClosed;
+    toggle(bugToToggle : Bug) : Bug {
+        //bugToToggle.isClosed = !bugToToggle.isClosed;
+        const toggledBug = { ...bugToToggle, isClosed : !bugToToggle.isClosed};
+        return toggledBug;
     }
 }
