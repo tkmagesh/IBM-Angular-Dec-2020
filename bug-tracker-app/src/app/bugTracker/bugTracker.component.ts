@@ -10,7 +10,8 @@ export class BugTrackerComponent{
     private currentBugId: number = 0;
 
     bugs : Bug[] = [];
-
+    rangeValue : number = 20;
+    
     onAddNewClick(bugName : string){
         const newBug : Bug = {
             id : ++this.currentBugId,
