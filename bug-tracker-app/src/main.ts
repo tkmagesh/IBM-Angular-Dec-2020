@@ -11,12 +11,18 @@ console.log(calc.add(100,200));
 
 */
 
-/* import * as calc from './calculator';
+/* 
+import * as calc from './calculator';
 //const add = calc.add;
 const { add } = calc; */
 
+/* 
 import { add } from './calculator';
-console.log(add(300,200));
+console.log(add(300,200)); 
+*/
+
+import calc from './calculator';
+console.log(calc);
 
 if (environment.production) {
   enableProdMode();
