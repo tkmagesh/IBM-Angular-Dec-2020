@@ -1,17 +1,22 @@
+import { Injectable } from '@angular/core';
 import { Bug } from '../models/Bug';
 
+@Injectable({
+    providedIn : 'root'
+})
 export class BugStorageService{
     private currentBugId: number = 0;
     private storage = window.localStorage;
 
     getAll() : Bug[]{
         let result = [];
-        for(let index = 0, count = this.storage.length; index < count;){
+        for(let index = 0, count = this.storage.length; index < count;index++){
             let key = this.storage.key(index) || '';
             if (key.startsWith('bug')){
                 let rawData = this.storage.getItem(key) || '',
                     bug = JSON.parse(rawData);
                 result.push(bug);
+                this.currentBugId = this.currentBugId > bug.id ? this.currentBugId : bug.id;
             }
         }
         return result;
