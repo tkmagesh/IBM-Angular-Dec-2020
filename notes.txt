@@ -175,3 +175,8 @@ reduce
             return {...prevResult, odd : prevResult.odd + 1}
         }
     }, { even : 0, odd : 0 })
+
+ES6 Modules
+    - Everything defined in a JS/TS file is considered private
+    - Anything that needed to exposed to the outside world has to be explicitly exported
+    - Outside modules need to be explicitly imported

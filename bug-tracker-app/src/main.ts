@@ -4,8 +4,19 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import * as moment from 'moment';
-console.log(moment('2020-12-10T09:24:24.376Z').fromNow());
+/* 
+import * as calc from './calculator'
+console.log(calc);
+console.log(calc.add(100,200)); 
+
+*/
+
+/* import * as calc from './calculator';
+//const add = calc.add;
+const { add } = calc; */
+
+import { add } from './calculator';
+console.log(add(300,200));
 
 if (environment.production) {
   enableProdMode();
