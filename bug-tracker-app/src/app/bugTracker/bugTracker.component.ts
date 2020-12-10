@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugOperationsService } from './services/bugOperations.service';
 
 @Component({
     selector : 'app-bug-tracker',
-    templateUrl: './bugTracker.component.html'
+    templateUrl: './bugTracker.component.html',
+    styleUrls: ['./bugTracker.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class BugTrackerComponent{
     
@@ -21,9 +23,7 @@ export class BugTrackerComponent{
         this.bugs.push(this.bugOpetations.createNew('Data integrity checks failed'))
     }
 
-    onAddNewClick(bugName : string){
-        const newBug = this.bugOpetations.createNew(bugName);
-        //this.bugs.push(newBug);
+    onNewBugCreated(newBug : Bug) {
         this.bugs = [...this.bugs, newBug];
     }
 

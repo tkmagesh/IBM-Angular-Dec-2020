@@ -9,7 +9,8 @@ import { Bug } from '../models/Bug';
             <span> / </span>
             <span>{{list.length}}</span>
         </section>
-    `
+    `,
+   
 })
 export class BugStatsComponent{
 

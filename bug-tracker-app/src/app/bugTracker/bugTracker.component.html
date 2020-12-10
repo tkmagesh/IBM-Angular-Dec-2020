@@ -13,11 +13,8 @@
     <label for="">Descending ?:</label>
     <input type="checkbox" (change)="sortByDesc=$any($event.target).checked">
 </section>
-<section class="edit">
-    <label for="">Bug Name :</label>
-    <input type="text" #txtNewBugName>
-    <input type="button" value="Add New" (click)="onAddNewClick(txtNewBugName.value)">
-</section>
+<app-bug-edit (bugCreated)="onNewBugCreated($event)"></app-bug-edit>
+
 <input type="range" min="20" max="40" value="20" (input)="rangeValue=$any($event.target).value"/>
 <span> [ {{rangeValue}} ] </span>
 <section class="list">
