@@ -1,10 +1,6 @@
 <h3>Bugs</h3>
 <hr>
-<section class="stats">
-    <span class="closed">{{ bugs | closedCount }}</span>
-    <span> / </span>
-    <span>{{bugs.length}}</span>
-</section>
+<app-bug-stats [data]="bugs"></app-bug-stats>
 <section>
     <label for="">Order By :</label>
     <select (change)="sortAttr = $any($event.target).value">
