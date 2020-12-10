@@ -46,6 +46,24 @@
         (done) 7. Improvise the bug display
         (done) 8. Sort the bugs
         9. Persist the bugs in the 'localStorage'
+            Browser API (HTML5)
+            Offers persistance capability in the browser
+            Key/value store
+            Key has to be unique
+            Key & value must be strings
+                Use JSON.stringify & JSON.parse for serialization and deserialization
+            ~10MB storage limit
+            Same Origin Policy
+            API
+                window.localStorage (object)
+                =============================
+                - setItem(key, value) // add OR update an item
+                - getItem(key) // => value
+                - removeItem(key)
+                - key(index) => key @ index
+                - clear() //=> remove all the items from the storage
+                - length //=> the no of items in the storage
+
         10. Improve 'createdAt' display
         11. Persist the bugs in the server
         12. Make the bugs accessible using unique URLs (routing)
