@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugOperationsService } from './services/bugOperations.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector : 'app-bug-tracker',
@@ -16,7 +17,27 @@ export class BugTrackerComponent{
     sortAttr : string = '';
     sortByDesc : boolean = false;
 
-    constructor(private bugOpetations : BugOperationsService){
+    constructor(
+        private bugOpetations : BugOperationsService
+        , private httpClient : HttpClient
+    ){
+        /* 
+        Server communication code
+
+        //to get all the bugs
+        var observable$ = httpClient.get<Bug[]>('http://localhost:3000/bugs');
+        observable$.subscribe(bugs => console.table(bugs));
+
+        //to insert a new bug
+        var obs$ = httpClient.post<Bug>('http://localhost:3000/bugs', bugData);
+
+        //to update a bug
+        var obs$ = httpClient.put<Bug>('http://localhost:3000/bugs' + '/' + bugData.id, bugData);
+
+        //to delete a bug
+        var obs$ = httpClient.delete<Bug>('http://localhost:3000/bugs' + '/' + bugData.id) 
+        */
+
         this.bugs = this.bugOpetations.getAll();
     }
 

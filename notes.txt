@@ -188,3 +188,24 @@ Promise
     then(callback), catch(callback)
         callback to the 'then' method will be executed when the async operation is successfull.
         callback to the 'catch' method will be executed when the async operation is failure.
+
+Observable
+    for stream of data (events)
+    rxjs (Reactive Extension for JavaScript)
+
+Event Driven Applications
+
+employees.csv
+id, first name, last name, doj, city, salary
+
+let count = 0, sumOfSalary = 0;
+open employees.csv
+while(!eof()){
+    read line;
+    parse line;
+    ++count;
+    sumOfSalary += salary;
+}
+let avgSalary = sumOfSalary / count;
+print avgSalary
+close employees.csv
