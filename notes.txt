@@ -209,3 +209,28 @@ while(!eof()){
 let avgSalary = sumOfSalary / count;
 print avgSalary
 close employees.csv
+
+
+projects
+schedules
+teams
+
+RIA lacks bookmarkkability
+
+http://www.amazon.in
+http://www.amazon.in/electronics
+http://www.amazon.in/electronics/phones
+http://www.amazon.in/electronics/phones/google
+http://www.amazon.in/electronics/phones/google/pixel-2
+
+http://www.amazon.in/electronics/phones/google/pixel-2/reviews
+
+
+Outlook
+Outlook/Inbox
+Outlook/Inbox/Projects
+Outlook/Inbox/Projects/Payroll-Master
+Outlook/Inbox/Projects/Payroll-Master/bugs
+Outlook/Inbox/Projects/Payroll-Master/bugs/bug-101
+
+
