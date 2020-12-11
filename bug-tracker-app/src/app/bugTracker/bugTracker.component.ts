@@ -1,7 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugOperationsService } from './services/bugOperations.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector : 'app-bug-tracker',
@@ -9,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./bugTracker.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class BugTrackerComponent{
+export class BugTrackerComponent implements OnInit, OnDestroy {
     
     bugs : Bug[] = [];
     rangeValue : number = 20;
@@ -20,9 +19,17 @@ export class BugTrackerComponent{
     constructor(
         private bugOpetations : BugOperationsService
     ){
+        
+    }
+
+    ngOnInit() {
         this.bugOpetations
             .getAll()
             .subscribe(bugs => this.bugs = bugs);
+    }
+
+    ngOnDestroy() {
+
     }
 
     onNewBugCreated(newBug : Bug) {
