@@ -14,19 +14,21 @@
 
     window['addSyncClient'] = addSyncClient
 
-    function addAsync(x,y){
+    function addAsync(x,y, callback){
         console.log(`   [@Service] processing ${x} and ${y}`);
         setTimeout(function(){
             const result = x + y;
             console.log(`   [@Service] returning result`);
-            return result;
+            callback(result);
         }, 5000);
     }
 
     function addAsyncClient(x,y){
         console.log(`[@Client] triggering the service`);
-        const result = addAsync(x,y);
-        console.log(`[@Client] result = ${result}`);
+        addAsync(x,y, function(result){
+            console.log(`[@Client] result = ${result}`);
+        });
+        
     }
 
     window['addAsyncClient'] = addAsyncClient
