@@ -180,3 +180,11 @@ ES6 Modules
     - Everything defined in a JS/TS file is considered private
     - Anything that needed to exposed to the outside world has to be explicitly exported
     - Outside modules need to be explicitly imported
+
+
+Promise
+    Object designed to hold the result of the async operation
+    One can subscribte to the promise object to get the result
+    then(callback), catch(callback)
+        callback to the 'then' method will be executed when the async operation is successfull.
+        callback to the 'catch' method will be executed when the async operation is failure.
