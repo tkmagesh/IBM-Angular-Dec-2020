@@ -19,26 +19,10 @@ export class BugTrackerComponent{
 
     constructor(
         private bugOpetations : BugOperationsService
-        , private httpClient : HttpClient
     ){
-        /* 
-        Server communication code
-
-        //to get all the bugs
-        var observable$ = httpClient.get<Bug[]>('http://localhost:3000/bugs');
-        observable$.subscribe(bugs => console.table(bugs));
-
-        //to insert a new bug
-        var obs$ = httpClient.post<Bug>('http://localhost:3000/bugs', bugData);
-
-        //to update a bug
-        var obs$ = httpClient.put<Bug>('http://localhost:3000/bugs' + '/' + bugData.id, bugData);
-
-        //to delete a bug
-        var obs$ = httpClient.delete<Bug>('http://localhost:3000/bugs' + '/' + bugData.id) 
-        */
-
-        this.bugs = this.bugOpetations.getAll();
+        this.bugOpetations
+            .getAll()
+            .subscribe(bugs => this.bugs = bugs);
     }
 
     onNewBugCreated(newBug : Bug) {
@@ -46,13 +30,19 @@ export class BugTrackerComponent{
     }
 
     onBugClick(bugToToggle : Bug){
-        const toggledBug = this.bugOpetations.toggle(bugToToggle);
-        this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug)
+        this.bugOpetations
+            .toggle(bugToToggle)
+            .subscribe(toggledBug => {
+                this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug)
+            });
     }
 
     onRemoveClick(bugToRemove : Bug){
-        this.bugOpetations.remove(bugToRemove);
-        this.bugs = this.bugs.filter(bug => bug !== bugToRemove);
+        this.bugOpetations
+            .remove(bugToRemove)
+            .subscribe(() => {
+                this.bugs = this.bugs.filter(bug => bug !== bugToRemove);
+            })
     }
 
     onRemoveClosedClick(){
