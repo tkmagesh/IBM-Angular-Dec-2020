@@ -37,6 +37,9 @@
         console.log(`   [@Service] processing ${x} and ${y}`);
         const promise = new Promise(function(resolveFn, rejectFn){
             setTimeout(function(){
+                if (x < 0 || y < 0) {
+                    rejectFn(new Error('Invalid arguments'))
+                }
                 const result = x + y;
                 console.log(`   [@Service] returning result`);
                 resolveFn(result);
@@ -47,21 +50,25 @@
 
     window['addAsyncPromise'] = addAsyncPromise;
 
-   /*  
+    
    function addAsyncPromiseClient(x,y){
         console.log(`[@Client] triggering the service`);
         const p = addAsyncPromise(x,y);
         p.then(function(result){
             console.log(`[@Client] result = ${result}`);
-        });
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+        
     } 
-    */
+    
 
-    async function addAsyncPromiseClient(x,y){
+   /*  async function addAsyncPromiseClient(x,y){
         console.log(`[@Client] triggering the service`);
         const result = await addAsyncPromise(x,y);
         console.log(`[@Client] result = ${result}`);
-    }
+    } */
 
     window['addAsyncPromiseClient'] = addAsyncPromiseClient
 
