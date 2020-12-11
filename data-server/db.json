@@ -1,5 +1,12 @@
 {
-  "bugs": [],
+  "bugs": [
+    {
+      "id": 1,
+      "name": "Server communicaiton failure",
+      "isClosed": false,
+      "createdAt": "2020-12-11T08:52:54.021Z"
+    }
+  ],
   "projects": [
     {
       "id": 1,
