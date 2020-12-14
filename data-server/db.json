@@ -9,7 +9,7 @@
     {
       "id": 2,
       "name": "Component not rendered",
-      "isClosed": false,
+      "isClosed": true,
       "createdAt": "2020-12-11T09:23:55.416Z"
     },
     {
